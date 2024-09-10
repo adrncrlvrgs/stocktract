@@ -6,7 +6,7 @@ import { getAllUsers } from "@/_actions/users.actions";
 import { useState, useEffect } from "react";
 
 export default function Home() {
-  const [state, dispatch] = useData(); // Access state and dispatch from the context
+  const [state, dispatch] = useData(); 
 
   console.log(state)
 

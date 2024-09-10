@@ -1,6 +1,4 @@
-// src/_context/context.tsx
 "use client";
-
 import { createContext, useContext, useReducer, useMemo, ReactNode, Dispatch } from "react";
 import rootReducer from "../_reducers/combineReducers";
 

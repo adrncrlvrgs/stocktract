@@ -1,13 +1,4 @@
-
-
 import { usersConstants } from "../_constants/users.constants";
-
-interface UserState {
-  users: any[];
-  user: any | null;
-  loading: boolean;
-  error: any | null;
-}
 
 interface Action {
   type: string;
@@ -15,14 +6,14 @@ interface Action {
   error?: any;
 }
 
-const initialState: UserState = {
+const initialState = {
   users: [],
   user: null,
   loading: false,
   error: null,
 };
 
-const userReducer = (state = initialState, action: Action): UserState => {
+const userReducer = (state = initialState, action: Action) => {
   console.log('UserReducer Action:', action); // Debug log
   switch (action.type) {
     case usersConstants.GET_ALL_REQUEST:
