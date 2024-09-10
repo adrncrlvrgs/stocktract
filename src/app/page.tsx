@@ -8,8 +8,6 @@ import { useState, useEffect } from "react";
 export default function Home() {
   const [state, dispatch] = useData(); 
 
-  console.log(state)
-
   useEffect(() => {
     getAllUsers()(dispatch);
   }, [dispatch]);
@@ -19,12 +17,10 @@ export default function Home() {
     return <div>Loading users...</div>;
   }
 
-  // Show error if any
   if (state.userReducer.error) {
     return <div>Error: {state.userReducer.error}</div>;
   }
 
-  // Show table once data is fetched
   return (
     <table>
       <thead>

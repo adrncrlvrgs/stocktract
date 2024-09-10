@@ -15,6 +15,10 @@ const combineReducers = (slices: { [key: string]: (state: any, action: Action) =
     state
   );
 
+
+
+
+//put all reducers here
 const rootReducer = combineReducers({
   userReducer, // Ensure the key matches the key used in the initialState
 });

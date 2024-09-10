@@ -1,6 +1,7 @@
 "use client";
 import { createContext, useContext, useReducer, useMemo, ReactNode, Dispatch } from "react";
 import rootReducer from "../_reducers/combineReducers";
+import { usersInitialState } from "./initialState";
 
 interface Action {
   type: string;
@@ -9,12 +10,7 @@ interface Action {
 }
 
 const initialState = {
-  userReducer: {
-    users: [],
-    user: null,
-    loading: false,
-    error: null,
-  },
+  userReducer: usersInitialState.getAllUsers,
 };
 
 type DataContextType = [typeof initialState, Dispatch<Action>];

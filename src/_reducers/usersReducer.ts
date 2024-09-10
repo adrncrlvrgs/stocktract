@@ -1,4 +1,5 @@
 import { usersConstants } from "../_constants/users.constants";
+import { usersInitialState } from "@/_context/initialState";
 
 interface Action {
   type: string;
@@ -6,14 +7,7 @@ interface Action {
   error?: any;
 }
 
-const initialState = {
-  users: [],
-  user: null,
-  loading: false,
-  error: null,
-};
-
-const userReducer = (state = initialState, action: Action) => {
+const userReducer = (state = usersInitialState.getAllUsers, action: Action) => {
   console.log('UserReducer Action:', action); // Debug log
   switch (action.type) {
     case usersConstants.GET_ALL_REQUEST:
