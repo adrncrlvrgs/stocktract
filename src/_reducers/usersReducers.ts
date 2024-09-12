@@ -20,7 +20,6 @@ const getAllUsers = (state = usersInitialStates.getAllUsers, action: Action) => 
       return { ...state, loading: false, error: action.error };
       
     case delete_User.DELETE_USER_SUCCESS:
-      console.log('success')
       return {
         ...state,
         loading: false,
@@ -37,7 +36,6 @@ const deleteUser = ( state = usersInitialStates.deleteUser, action: Action) =>{
 
   switch (action.type) {
     case delete_User.DELETE_USER_REQUEST:
-      console.log('requested')
       return { ...state, loading: true, error: null };
 
     case delete_User.DELETE_USER_SUCCESS:

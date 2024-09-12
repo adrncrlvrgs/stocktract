@@ -7,19 +7,15 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [state, dispatch] = useData(); 
-  console.log(state)
 
   useEffect(() => {
     getAllUsers()(dispatch);
   }, [dispatch]);
 
   const handleDelete = (userId: any) => {
-    console.log('clicked')
-
     deleteUser(userId)(dispatch)
   };
 
-  // Show loading state
   if (state.getAllUsers.loading) {
     return <div>Loading users...</div>;
   }
@@ -39,7 +35,7 @@ export default function Home() {
         </tr>
       </thead>
       <tbody>
-        {state.getAllUsers.users.map((user: any) => (
+        {state?.getAllUsers?.users.map((user: any) => (
           <tr key={user.id}>
             <td>{user.id}</td>
             <td>{user.first_name}</td>

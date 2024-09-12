@@ -35,7 +35,7 @@ export const getAllUsers = () => async (dispatch: (arg0: { type: any; payload?: 
 //   }
 // };
 
-export const deleteUser = (userId: any) => async (dispatch: any) => {
+export const deleteUser = (userId: any) => async (dispatch: (arg0: { type: any; payload?: any; error?: any; }) => void) => {
   dispatch(request(delete_User.DELETE_USER_REQUEST));
   try {
     const deletedUserId = await userService.deleteUser(userId);
