@@ -1,4 +1,4 @@
-import userReducer from "./usersReducer";
+import { getAllUsers, deleteUser } from "./usersReducers";
 
 interface Action {
   type: string;
@@ -16,11 +16,10 @@ const combineReducers = (slices: { [key: string]: (state: any, action: Action) =
   );
 
 
-
-
 //put all reducers here
 const rootReducer = combineReducers({
-  userReducer, // Ensure the key matches the key used in the initialState
+  getAllUsers,
+  deleteUser // Ensure the key matches the key used in the initialState
 });
 
 

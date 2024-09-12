@@ -59,19 +59,23 @@ const getUsers = async () => {
 //   }
 // };
 
-// const deleteUser = async (userId: any) => {
-//   try {
-//     const response = await fetch(`${API_URL}/${userId}`, {
-//       method: 'DELETE',
-//     });
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok.');
-//     }
-//     return userId; 
-//   } catch (error) {
-//     console.error('Delete error:', error);
-//     throw error;
-//   }
-// };
+const deleteUser = async (userId: any) => {
+  console.log(userId)
+  try {
+    const response = await fetch(`${API_URL}/${userId}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      throw new Error('Network response was not ok.');
+    }else{
+      console.log('its good')
+    }
+    
+    return userId; 
+  } catch (error) {
+    console.error('Delete error:', error);
+    throw error;
+  }
+};
 
-export default { getUsers};
+export default { getUsers, deleteUser };

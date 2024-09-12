@@ -1,4 +1,4 @@
-import { usersConstants } from '../_constants/users.constants';
+import { get_All, delete_User } from '../_constants/users.constants';
 import userService from '../_service/users.service';
 
 const request = (type: string) => ({ type });
@@ -6,12 +6,12 @@ const success = (type: string, payload: any) => ({ type, payload });
 const failure = (type: string, error: any) => ({ type, error });
 
 export const getAllUsers = () => async (dispatch: (arg0: { type: any; payload?: any; error?: any; }) => void) => {
-  dispatch(request(usersConstants.GET_ALL_REQUEST));
+  dispatch(request(get_All.GET_ALL_REQUEST));
   try {
     const users = await userService.getUsers();
-    dispatch(success(usersConstants.GET_ALL_SUCCESS, users));
+    dispatch(success(get_All.GET_ALL_SUCCESS, users));
   } catch (error) {
-    dispatch(failure(usersConstants.GET_ALL_FAILURE, error?.toString()));
+    dispatch(failure(get_All.GET_ALL_FAILURE, error?.toString()));
   }
 };
 
@@ -35,12 +35,12 @@ export const getAllUsers = () => async (dispatch: (arg0: { type: any; payload?: 
 //   }
 // };
 
-// export const deleteUser = (userId: any) => async (dispatch: (arg0: { type: any; payload?: any; error?: any; }) => void) => {
-//   dispatch(request(usersConstants.DELETE_USER_REQUEST));
-//   try {
-//     const deletedUserId = await userService.deleteUser(userId);
-//     dispatch(success(usersConstants.DELETE_USER_SUCCESS, deletedUserId));
-//   } catch (error) {
-//     dispatch(failure(usersConstants.DELETE_USER_FAILURE, error?.toString()));
-//   }
-// };
+export const deleteUser = (userId: any) => async (dispatch: any) => {
+  dispatch(request(delete_User.DELETE_USER_REQUEST));
+  try {
+    const deletedUserId = await userService.deleteUser(userId);
+    dispatch(success(delete_User.DELETE_USER_SUCCESS, deletedUserId));
+  } catch (error) {
+    dispatch(failure(delete_User.DELETE_USER_FAILURE, error?.toString()));
+  }
+};
